@@ -979,11 +979,11 @@ Note that $F_x$ means the partial derivative of $F$ with respect to $x$ and $F_y
   The series $\sum_{n=0}^\infty f(n)$ converges if and only if $\sum_{n=0}^\infty 2^nf(2^n)$ converges.
 \end{theorem}
 \begin{theorem}
-  If $\sum b_n$ doesn't converge and $\lim_{n\to\infty}\frac{a_n}{b_n}>0$ then $\sum a_n$ doesn't converge.
+  Given $\sum b_n$ and $\sum a_n$. Suppose $\lim_{n\to\infty}\frac{a_n}{b_n}>0$ then $\sum a_n$ converges if and only if $\sum b_n$ converges.
 \end{theorem}
 \begin{proof}
-  Suppose $\lim_{n\to\infty}\frac{a_n}{b_n}=\lambda$. There exists $N$ such that $n\geq N\implies |\frac{a_n}{b_n}-\lambda|<\lambda/2$ or equivalently $\lambda/2<\frac{a_n}{b_n}<3\lambda/2$. Thus $b_n\lambda/2<a_n$. Finally,
-  $$\sum_{n=0}^\infty a_n=\sum_{n=0}^{N-1}a_n+\sum_{n=N}^\infty a_n>\sum_{n=0}^{N-1}a_n+\sum_{n=N}^\infty b_n\lambda/2$$ which diverges.
+  Suppose $b_n$ diverges. Let $\lim_{n\to\infty}\frac{a_n}{b_n}=\lambda$. There exists $N$ such that $n\geq N\implies |\frac{a_n}{b_n}-\lambda|<\lambda/2$ or equivalently $\lambda/2<\frac{a_n}{b_n}<3\lambda/2$. Thus $b_n\lambda/2<a_n$. Finally,
+  $$\sum_{n=0}^\infty a_n=\sum_{n=0}^{N-1}a_n+\sum_{n=N}^\infty a_n>\sum_{n=0}^{N-1}a_n+\sum_{n=N}^\infty b_n\lambda/2$$ which diverges. The case where $b_n$ converges is again similar.
 \end{proof}
 \begin{theorem}
   Suppose we have a sequence of functions $f_n:I\ra \R$ that satisfy some properties (differentiability, integrability, continuity, etc.) If $f_n$ converges uniformly then
@@ -993,10 +993,10 @@ and $\lim_{n\to\infty}f_n(x)$ is continuous on $I$.
 \end{theorem}
 Some Analysis definitions.
 \begin{definition}
-  The limit of $a_n$ $a_n$ converges to $L$ if and only if given $\eps>0$ there exists $N$ such that $n\geq N\implies |a_n-L|<\eps$
+  The limit of $a_n$: $a_n$ converges to $L$ if and only if given $\eps>0$ there exists $N$ such that $n\geq N\implies |a_n-L|<\eps$
 \end{definition}
 \begin{definition}
-  Continuity of $f$ at $x_0$ $f$ is continuous at $x_0$ if and only if given $\eps>0$ there exists $\delta$ such that $|x-x_0|<\delta\implies |f(x)-f(x_0)|<\eps$. Limits respect continuity. $\lim_{x\to x_0}f(x)=f(x_0)$.
+  Continuity of $f$ at $x_0$: $f$ is continuous at $x_0$ if and only if given $\eps>0$ there exists $\delta$ such that $|x-x_0|<\delta\implies |f(x)-f(x_0)|<\eps$. Limits respect continuity. $\lim_{x\to x_0}f(x)=f(x_0)$.
 \end{definition}
 \begin{definition}
   Uniform convergence on interval $I$ The sequence $f_n$ converges to $f$ uniformly if and only given $\eps$ there exists $N$ such that $n\geq N\implies |f_n(x)-f(x)|<\eps$ for all $x\in I$.
@@ -1006,10 +1006,10 @@ Some Topology Definitions
   A set $A$ is open if and only if for all $x\in A$ there exists $r\in \R$ such that $B_r(x)\subseteq A$. Infinite union and finite intersection.
 \end{definition}
 \begin{definition}
-  A set $A$ is closed if and only if $X-A$ is closed. Equivalently, $A$ is closed if and only if for all sequences $x_n:\N\ra A$, $\lim_{n\to\infty}x_n\in A$. Infinite intersection and finite union.
+  A set $A$ is closed if and only if $X-A$ is open. Equivalently, $A$ is closed if and only if for all sequences $x_n:\N\ra A$, $\lim_{n\to\infty}x_n\in A$. Infinite intersection and finite union.
 \end{definition}
 \begin{definition}
-  A set $X$ is compact if and only if all covers $X\subseteq \cup_{n=0}^\infty A_n$ there exists $\{A_{n_i}:0\leq i \leq N\}$ such that $X\subseteq \cup_{i=0}^NA_{n_i}$
+  A set $X$ is compact if and only if for all open covers $X\subseteq \cup_{n=0}^\infty A_n$ there exists $\{A_{n_i}:0\leq i \leq N\}$ such that $X\subseteq \cup_{i=0}^NA_{n_i}$
 \end{definition}
 Some reflections from the homework.
 \begin{fact}
@@ -1021,7 +1021,8 @@ Some reflections from the homework.
 \end{problem}
 \begin{proof}
   First we show that if $f_n$ converges then it's Cauchy.\\
-  Given $\eps$ there exists $N$ such that $n,m\geq N\implies d(f_n,f_m)<\eps$. There exists $N$ such that $n,m\geq N\implies d(f_n,f)<\eps/2$ and $d(f_m,f)<\eps/2$. Then $d(f_n,f_m)\leq d(f_n,f)+d(f_m,f)<\eps$. Conversely, suppose for all $\eps$ there exists $N$ such that $n,m\geq N\implies |f_n(x)-f_m(x)|<\eps$ for all $x\in I$. Then since $f_m(x)$ converges to some function $g(x)$ as $n\ra\infty$ since $\R$ is Cauchy complete. Thus $|f_n(x)-g(x)|<\eps$ for all $x\in I$.
+  Given $\eps$ there exists $N$ such that $n,m\geq N\implies d(f_n,f_m)<\eps$. There exists $N$ such that $n,m\geq N\implies d(f_n,f)<\eps/2$ and $d(f_m,f)<\eps/2$. Then $d(f_n,f_m)\leq d(f_n,f)+d(f_m,f)<\eps$. Conversely, suppose for all $\eps$ there exists $N$ such that $n,m\geq N\implies |f_n(x)-f_m(x)|<\eps/2$ for all $x\in I$.
+  Then since $f_m(x)$ converges to some function $g(x)$ as $n\ra\infty$ since $\R$ is Cauchy complete there exists $M$ such that $m\geq M\implies |g(x)-f_m(x)|<\eps/2$. Thus $|f_n(x)-g(x)|\leq|f_n(x)-f_m(x)|+|f_m(x)-g(x)|<\eps$ for all $x\in I$.
 \end{proof}
 \begin{theorem}
   Suppose we have a series $\sum a_n$ with $\limsup_{n\to\infty}|\frac{a_{n+1}}{a_n}|=\lambda$ and $R=\frac{1}{\lambda}$. Then $\sum a_n$ converges uniformly on $[-L,L]$ where $L<R$ and converges piecewise on $[-R,R]$.
@@ -1045,7 +1046,7 @@ Some stuff with ODEs:
     \end{cases}
   \end{equation*}
 \end{definition}
-We can show that every ODE has a solution. Let's first make sure some conditions are met. $f$ must be differentiable and its differentiable must be bounded by $L<1$.
+We can show that every ODE has a solution. Let's first make sure some conditions are met. $f$ must be differentiable and its differentiable must be bounded by $L$.
 \begin{proof}
   These conditions, coupled with the fundamental theorem of calculus, says that
   $$y(x)=\int_a^xf(y(x))dx+c$$
@@ -1102,7 +1103,7 @@ For one of the homework problems, there was the issue that the derivative of $f$
 \end{problem}
 \begin{proof}[Solution to Problem 142]
   I claim that this is $\inf E = \min\{\inf F,-\sup F\}$. Let's say $F$ is both bounded and is nonempty. We know that for $x\in F$, $\inf F\leq x\leq \sup F$. If $x\geq 0,-|x|\geq -\sup F$ and if $x<0,-|x|\geq \inf F$. Thus $-|x|$ is always bounded below by either $\inf F$ or $-\sup F$. Hence $\inf E\geq \min\{\inf F,-\sup F\}$.
-  Next, $\inf E\leq -|x|\leq |x|\leq -\inf E$. This shows that $\inf E\leq \inf F$ and $\inf E\leq -\sup F$ so $\inf E\leq \min\{\inf F,-\sup F\}$. Thus $\inf E=\min\{\inf F,-\sup F\}$.
+  Next, $\inf E\leq -|x|\leq x\leq |x|\leq -\inf E$. This shows that $\inf E\leq \inf F$ and $\inf E\leq -\sup F$ so $\inf E\leq \min\{\inf F,-\sup F\}$. Thus $\inf E=\min\{\inf F,-\sup F\}$.
 \end{proof}
 \begin{problem}
   We know that $$e^x=\sum_{n=0}^\infty\frac{x^k}{k!}.$$ Let's play around with it.
@@ -1226,4 +1227,21 @@ The case for $\lim_{x\to\infty}$ is easy if we set $f(x)=F(-\frac{1}{x})$ and $g
   \frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(c)}{g'(c)}.
   $$
 \end{theorem}
+\begin{problem}
+  Show that $f(x)=\frac{1}{x}$ is continuous on $\R-\{0\}$.
+\end{problem}
+\begin{proof}
+  By the definition of continuity, $f(x)$ is continuous at $x_0$ if and only if given $\eps>0$ there exists $\delta$ such that $|\frac{1}{x}-\frac{1}{x_0}|<\eps$. Let
+  $$
+  \delta = \min\{\eps,\frac{1}{2}|x_0|\}
+  $$
+  Then $|x_0|-|x|\leq |x-x_0|<\frac{1}{2}|x_0|\implies |x|>\frac{1}{2}|x_0|$
+  \begin{equation*}
+    \begin{split}
+      |\frac{1}{x}-\frac{1}{x_0}| & = |\frac{x_0-x}{xx_0}|\\
+      & < \frac{\eps}{|x||x_0|} \\
+      & < \frac{\eps}{\frac{1}{2}|x_0|}
+    \end{split}
+  \end{equation*}
+\end{proof}
 \end{document}
