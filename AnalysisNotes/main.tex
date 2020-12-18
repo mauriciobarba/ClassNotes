@@ -5,7 +5,7 @@
 \newif\iflinserif \linseriffalse % by default, uses cmbright sans serif font.
 \newif\iflinclass \linclasstrue % by default, numbers all theorems/definitions from 1 to N w/o regard for section
 \newif\iflinindent \linindenttrue % by default, does do paragraph indent
-\newif\iflinheader \linheaderfalse % by default, no header
+\newif\iflinheader \linheadertrue % by default, no header
 
 \DeclareOption{serif}{\linseriftrue}  % if you don't like the font
 \DeclareOption{formal}{\linclassfalse} % if you want a document where theorems in section 1 are "theorem 1.x", etc.
@@ -27,7 +27,7 @@
     \usepackage[includehead,includefoot, heightrounded,  left=0.8in, top=1.6cm, bottom=2.4cm, right=0.8in]{geometry}
     \usepackage{fancyhdr}
     \pagestyle{fancy}
-    \rhead{\textbf{Andrew Lin}} % change name as necessary
+    \rhead{\textbf{Mauricio Barba da Costa}} % change name as necessary
 \else
     \usepackage[left=0.8in, top=1.6cm, bottom=2.4cm, right=0.8in]{geometry}
 \fi
@@ -312,8 +312,6 @@ The map $T(x)=\frac{1}{2}x+1$ is a contraction mapping since $|T(x)-T(y)|=|(\fra
 \begin{proof}[Proof of the contraction mapping theorem]
 Let $T$ be a contraction mapping with $|T(x)-T(y)|\leq\gamma|x-y|$. Create a sequence inductively by $a_0=x_0$ where $x_0$ is some real number and $a_{k+1}=T(a_k)=T^n(x_0)$. $|a_{n+1}-a_n|=|T^{n+1}(x_0)-T^n(x_0)|=|T^n(T(x_0))-T^n(x_0)|=|T(T^{n-1}(T(x_0)))-T(T^{n-1}(x_0))|\leq\gamma|T^{n-1}(T(x_0))-T^{n-1}(x_0)|\leq\gamma^n|T(x_0)-x_0|$. For any arbitrary $m,n$ with $m\geq n, |a_m-a_n|\leq|a_m-a_{m-1}|+|a_{m-1}-a_{m-2}|+...|a_{n+1}-a_n|\leq(\gamma^{m-1}+\gamma^{m-2}+...\gamma^{n})|T(x_0)-x_0|=\frac{\gamma^n-\gamma^m}{1-\gamma}|T(x_0)-x_0|$. Given $\epsilon$ there exists $N$ such that $\frac{\gamma^{N}}{1-\gamma}<\frac{\epsilon}{|T(x_0)-x_0|}$. If $n$ and $m$ are greater than $N$ then $\frac{\eps}{|T(x_0)-x_0|}>\frac{\gamma^{N}}{1-\gamma}>\frac{\gamma^n}{1-\gamma}>\frac{\gamma^n-\gamma^m}{1-\gamma}$. Thus $a_n$ is Cauchy. $|T(a)-a|=|T(a)-T^{n+1}(x_0)+T^{n+1}(x_0)-T^n(x_0)+T^n(x_0)-a|\leq|T(a)-T^{n+1}(x_0)|+|T^{n+1}(x_0)-T^n(x_0)|+|T^n(x_0)-a|<2|a-T^n(x_0)|+|T^{n+1}(x_0)-T^n(x_0)|\leq 2|a-T^n(x_0)|+\gamma^n|T(x_0)-x_0|$. Since $a_n$ converges to $a$, given $\epsilon$ there exists $N$ such that $n>N\implies |a-T^n(x_0)|<\epsilon/3$ and since $\gamma^n$ converges to 0, given $\epsilon$, there exists $M$ such that $n>M\implies \gamma^n|T(x_0)-x_0|<\epsilon/3$. Thus if $n>\max\{N,M\}$, $|T(a)-a|<\epsilon$. Since $\epsilon$ can be made arbitrarily small, $T(a)=a$.
 \end{proof}
-bark bark meow woof
-hahhahhah
 \section{September 15, 2020}
 \begin{fact}
 Cauchy sequences are useful because you can say a sequence converges without identifying the point it converges to.
@@ -357,7 +355,7 @@ If $\overline{s}_n=\sum_{i=1}^n|a_i|$ is convergent then $s_n=\sum_{i=1}^n a_i$ 
 \end{proposition}
 \begin{proof}
 If $\overline{s}_n=\sum_{i=1}^n|a_i|$ is convergent then this is equivalent to saying that $\overline{s}_n$ is a Cauchy sequence. Let $n>m$. Then $|s_n-s_m|\leq|a_{m+1}|+...+|a_n|=|\overline{s}_n-\overline{s}_m|$. Thus if $\overline{s}_n$ is Cauchy (convergent) then $s_n$ is Cauchy (convergent)
-\end{proof} lol i thought you deleted my comment i got really sad but good thing you didn't lol i love u so much you legit have no idea :(
+\end{proof}
 \section{September 17, 2020}
 \subsection{Tests for convergence of series}
 \begin{definition}[Comparison Test]
@@ -824,7 +822,6 @@ $F:[a,b]\ra\R$. $F$ is differentiable and $F'=f$ is integrable. $F(b)-F(a)=
 \begin{proof}
 Let $x_0<x_1<...<x_{n-1}$ be a partition of $[a,b]$. Then $F(b)-F(a)=\sum_{i=0}^{n-1}F(x_{i+1})-F(x_i)$. This proof isn't finished.
 \end{proof}
-i love you cant wait until i get to see u again bc i love u and value and have separation anxiety and youre the perfect person for me and im worried youll realize that im not ur perfect person<3. :(:-alanochka (baby)
 \section{November 10, 2020}
 We showed last time that continuous functions are integrable. This is also in Rudin. We also showed some things that facilitate calculating the integral. For example, $\sum_a^b(f+g)dx=\int_a^bfdx+\int_a^bgdx$. Also, $\int_a^b(cf)dx=c\int_a^bfdx$.
 
@@ -982,7 +979,7 @@ Note that $F_x$ means the partial derivative of $F$ with respect to $x$ and $F_y
   The series $\sum_{n=0}^\infty f(n)$ converges if and only if $\sum_{n=0}^\infty 2^nf(2^n)$ converges.
 \end{theorem}
 \begin{theorem}
-  If $\sum b_n$ doesn't converge and $\lim_{n\to\infty}\frac{a_n}{b_n}>1$ then $\sum a_n$ doesn't converge.
+  If $\sum b_n$ doesn't converge and $\lim_{n\to\infty}\frac{a_n}{b_n}>0$ then $\sum a_n$ doesn't converge.
 \end{theorem}
 \begin{proof}
   Suppose $\lim_{n\to\infty}\frac{a_n}{b_n}=\lambda$. There exists $N$ such that $n\geq N\implies |\frac{a_n}{b_n}-\lambda|<\lambda/2$ or equivalently $\lambda/2<\frac{a_n}{b_n}<3\lambda/2$. Thus $b_n\lambda/2<a_n$. Finally,
@@ -1038,4 +1035,195 @@ Some reflections from the homework.
 \begin{proof}
   Given $\eps$ there exists $\delta$ such that $|x|<\delta\implies |f'(x)-L|<\eps$. There exists $c\in(0,x)$ such that $f'(c)=\frac{f(x)-f(0)}{x-0}$. Since $|c|<\delta$, $|f'(c)-L|<\eps$ so $|\frac{f(x)-f(0)}{x-0}-L|<\eps$
 \end{proof}
+Some stuff with ODEs:
+\begin{definition}
+  An ODE is of the form
+  \begin{equation*}
+    \begin{cases}
+      y'(x)=f(y(x)) \\
+      y(a)=c
+    \end{cases}
+  \end{equation*}
+\end{definition}
+We can show that every ODE has a solution. Let's first make sure some conditions are met. $f$ must be differentiable and its differentiable must be bounded by $L<1$.
+\begin{proof}
+  These conditions, coupled with the fundamental theorem of calculus, says that
+  $$y(x)=\int_a^xf(y(x))dx+c$$
+  Suppose we're working over the space $I=[a,b]$ with metric
+  $$d(f,g)=\sup_{x\in I}|f(x)-g(x)|.$$
+  Define the functional $T:C(I)\ra C(I)$ by $T(h(x))=\int_a^xf(h(s))ds+c$. We now have to show that $T$ is a contraction mapping. This is equivalent to saying that $d(T(\alpha(x)),T(\beta(x)))\leq \lambda d(\alpha(x),\beta(x))$ for $\lambda<1$. A useful assumption to have will be that $L(b-a)<1$. First, observe that
+  $$|f(\alpha(x))-f(\beta(x))|=|f'(c)(\alpha(x)-\beta(x))|\leq L|\alpha(x)-\beta(x)|$$
+  for some $c\in (\alpha(x),\beta(x))$.
+  \begin{equation*}
+    \begin{split}
+      d(T(\alpha),T(\beta)) & =\sup_{x\in I}|\int_a^x(f(\alpha(s))-f(\beta(s)))ds| \\
+      & \leq \sup_{x\in I}\int_a^x|f(\alpha(s))-f(\beta(s))|ds \\ %triangle inequality
+      & \leq L\sup_{x\in I}\int_a^x|\alpha(s)-\beta(s)|ds \\ %pull out the L
+      & = L\int_a^b|\alpha(s)-\beta(s)|ds \\
+      & \leq L\sup_{s\in I}(b-a)|\alpha(s)-\beta(s)| \\
+      & = L(b-a)d(\alpha(x),\beta(x))
+    \end{split}
+  \end{equation*}
+\end{proof}
+If instead we were working over $[A,B]$ and $L(B-A)\geq 1$. Then we can cover $[A,B]$ with closed intervals of length $b-a$. We can guarantee that there is a unique solution for the ODE on each of the subintervals. Thus furnishes a function that satisfies the ODE on the entire interval $[A,B]$.
+
+For one of the homework problems, there was the issue that the derivative of $f$ was not bounded above by $L<1$. We instead showed the uniqueness of a solution and not its existence (though it wouldn't be hard to show). We showed that if $y_1(x_0)=y_2(x_0)$ then $y_1(x)=y_2(x)$ for all $x\in [x_0,x_0+b]$.
+\begin{problem}
+  Let $y:[0,1]\ra \R$. Show that the solution to the following ODE is unique.
+  \begin{equation*}
+    \begin{cases}
+      y'(x) = y^2(X) \\
+      y(0) = a
+    \end{cases}
+  \end{equation*}
+\end{problem}
+\begin{proof}
+  Suppose $y_1(x_0)=y_2(x_0)$. Let $M=\sup_{x\in I}|y_1(x)+y_2(x)|$. Then for all $x\in[x_0,x_0+b]$.
+  \begin{equation*}
+    \begin{split}
+      |y_1(x)-y_2(x)| & = |\int_a^xy_1^2(x)-y_2^2(x)dx| \\
+      & \leq \int_{x_0}^x | y_1^2(x)-y_2^2(x)|dx \\
+      & \leq \int_{x_0}^x |y_1(x)+y_2(x)||y_1(x)-y_2(x)|dx \\
+      & \leq M\int_{x_0}^x |y_1(x)-y_2(x)|dx \\
+      & \leq Mb\sup_{x\in[x_0,x_0+b]}|y_1(x)-y_2(x)|
+    \end{split}
+  \end{equation*}
+  We can set $b$ arbitrarily so let it be $\frac{1}{2M}$. But then this implies that $y_1(x)=y_2(x)$ for all $x\in[x_0,x_0+b]$. We know from the ODE condition that $y_1(0)=y_2(0)$. But then $y_1(x)=y_2(x)$ for all $x\in[0,b]$. Do this trick again setting $x_0=b$. We get that $y_1(x)=y_2(x)$ for all $x\in[0,2b]$.
+  We can do this inductively to get that $y_1(x)=y_2(x)$ for all $x\in[0,1]$.
+\end{proof}
+\begin{problem}
+  Suppose given $\eps$ there exists $N$ such that $n,m\geq N\implies |f_n(x)-f_m(x)|<\eps/2$ for all $x\in I$ and given $x$ and $\eps$ there exists $M$ such that $m\geq M\implies |f_m(x)-f(x)|<\eps/2$. Then I claim that for $n\geq N |f_n(x)-f(x)|<\eps$.
+\end{problem}
+\begin{proof}[Solution to Problem 141]
+  Note that $N$ doesn't depend on $x$ but $M$ does. Then $|f_n(x)-f(x)|\leq |f_n(x)-f_m(x)|+|f_m(x)-f(x)|<\eps$ for all $n\geq N$ and $x$.
+\end{proof}
+\begin{problem}
+  Let $F$ be a subset of $\R$ and $E=\{-|x|:x\in F\}$. Express $\inf E$ in terms of $\inf F$.
+\end{problem}
+\begin{proof}[Solution to Problem 142]
+  I claim that this is $\inf E = \min\{\inf F,-\sup F\}$. Let's say $F$ is both bounded and is nonempty. We know that for $x\in F$, $\inf F\leq x\leq \sup F$. If $x\geq 0,-|x|\geq -\sup F$ and if $x<0,-|x|\geq \inf F$. Thus $-|x|$ is always bounded below by either $\inf F$ or $-\sup F$. Hence $\inf E\geq \min\{\inf F,-\sup F\}$.
+  Next, $\inf E\leq -|x|\leq |x|\leq -\inf E$. This shows that $\inf E\leq \inf F$ and $\inf E\leq -\sup F$ so $\inf E\leq \min\{\inf F,-\sup F\}$. Thus $\inf E=\min\{\inf F,-\sup F\}$.
+\end{proof}
+\begin{problem}
+  We know that $$e^x=\sum_{n=0}^\infty\frac{x^k}{k!}.$$ Let's play around with it.
+\end{problem}
+\begin{proof}[Playing around with e]
+  The \vocab{Weierstrass M-Test} says that if there exists $M_n$ such that $M_n\geq |\frac{x^k}{k!}|$ for all $x\in[-L,L]$ and $\sum_{n=0}^\infty M_n$ converges then $\sum_{n=0}^\infty \frac{x^k}{k!}$ converges uniformly on $[-L,L]$. Let $x\in[-L,L]$.
+  Look at $|\frac{x^k}{k!}|\leq \frac{L^k}{k!}$. We can show using, say, the ratio test, that $\sum_{n=0}^\infty\frac{L^k}{k!}$ converges. Then $\sum_{n=0}^\infty \frac{x^k}{k!}$ converges uniformly on $[-L,L]$. The weierstrass $M$-test is actually pretty easy to show.\\
+  Now let's use the \vocab{Taylor Series Expansion} of $e^x$. Suppose we know that $\frac{d}{dx}e^x|_{x=0}=1$. Taylor's theorem says that
+  $$e^x=\sum_{n=0}^{N-1}\frac{x^k}{k!}+\frac{e^{c_N}}{N!}x^N$$ for some $c_N\in(0,x)$. By the extremal value theorem, $f$ has a maximal value $M$ on $[0,x]$. Now, for a fixed $x$, the limit as $N$ approaches infinity of $\frac{Mx^N}{N!}$ is 0 so we can be confident that $e^x=\sum_{n=0}^\infty \frac{x^n}{n!}$.
+\end{proof}
+\begin{problem}
+  Let $f_n$ be a sequence of Lipschitz functions each with the same Lipschitz constant $L$. Show that if $f_n\ra f$ pointwise on $[a,b]$ then it converges uniformly.
+\end{problem}
+\begin{proof}
+  It's easy to show that $f$ is Lipschitz with Lipschitz constant $L$ so let's just assume it. Given $\eps>0$. Create a partition $x_0,x_1,...,x_m$ of $[a,b]$ such that $x_{i+1}-x_i<\frac{\eps}{3L}$ for all $i$. For each of these $x_i$, there exists $N_i$ such that $n\geq N_i\implies |f_n(x_i)-f(x_i)|<\eps/3$. Let $N=\max_iN_i$. Then,
+  \begin{equation*}
+    \begin{split}
+      |f_n(x)-f(x)| & \leq |f_n(x)-f_n(x_i)+f_n(x_i)-f(x_i)+f(x_i)-f(x)| \\
+      & \leq |f_n(x_i)-f_n(x_i)|+|f_n(x_i)-f(x_i)|+|f(x_i)-f(x)| \\
+      & < L\frac{\eps}{3L}+\frac{\eps}{3}+L\frac{\eps}{3L}
+    \end{split}
+  \end{equation*}
+\end{proof}
+Now for the stuff that wasn't in psets/I wasn't paying attention to when it was taught.
+\begin{definition}[The Directional Derivative]
+  Let $\vec u =<a,b>$ be a unit vector. Then the directional derivative
+  $$
+  D_uf(x,y)=\lim_{h\to0}\frac{f(x+ah,y+bh)-f(x,y)}{h}
+  $$
+\end{definition}
+\begin{theorem}
+  Let $f$ be continuously differentiable at a point $(x_0,y_0)$. Then
+  $$
+  \frac{\partial f}{\partial x\partial y}=\frac{\partial f}{\partial x\partial y}
+  $$
+\end{theorem}
+\begin{problem}
+  Let $(X,d)$ be a compact metric space and $A_j$ a sequence of closed sets. Prove that if
+  $$
+  X\cap(\bigcap_{n=0}^\infty A_j)=\emptyset
+  $$
+  then
+  $$
+  X\cap(\bigcap_{n=0}^N A_j)=\emptyset
+  $$
+  for some finite $N$
+\end{problem}
+\begin{proof}
+  Let $B_j=X-A_j$. $B_j$ are all open sets. Then if $X\cap(\bigcap_{n=0}^\infty A_j)=\emptyset$ then
+  $$
+  \bigcup_{n=0}^\infty B_j=X
+  $$
+  Since $X$ is compact, there are finitely many $B_j$ that cover $X$. This proves the claim.
+\end{proof}
+\begin{problem}
+  Consider the metric space $(C([0,1]),d)$ where $C([0,1])$ denotes the set of continuous functions on $[0,1]$ and
+  $$
+  d(f,g)=\sup_{x\in[0,1]}|f(x)-g(x)|
+  $$
+  Is the set $S=\{f(x)\in C([0,1]):f(x)\geq 0\forall x\in[0,1]\}$ open, closed, or neither?
+\end{problem}
+\begin{proof}
+  $S$ is open if and only if for all $f\in S$, there exists $r$ such that $f\in B_r(f)\subseteq S$. Remember that
+  $$
+  B_r(f)=\{g\in C([0,1]):\sup_{x\in[0,1]}|f(x)-g(x)|<r\}
+  $$
+  Now, it's clear that $S$ can't be open because $f(x)=0\in S$ but for all $r$, $g(x)=-\frac{r}{2}\notin S$ but $|f(x)-g(x)|=\frac{r}{2}<r$. To show it's closed, let's see if the complement $T$ is open.
+  $$
+  T=\{f\in C([0,1]):\exists x\in[0,1] s.t. f(x)<0\}
+  $$
+  Let $f\in T$ and $r=-\inf_{x\in[0,1]}f(x)$ and $f(x_0)=-r$. Then $r>0$ and for all $g\in B_\frac{r}{2}(f)$, $|g(x_0)-f(x_0)|\leq\sup_{x\in[0,1]|f(x)-g(x)|}<\frac{r}{2}$ so $g(x_0)<-\frac{r}{2}<0$.
+  Thus $S$ is closed and $T$ is open.
+\end{proof}
+\begin{definition}
+  Given $f$, and a partition $P$ with $x_0,x_1,...,x_m$, define
+  $$
+  m_i=\inf_{x\in[x_{i+1},x_i]}f(x)\quad M_i=\sup_{x\in[x_{i+1},x_i]}f(x)
+  $$
+  and
+  $$
+  L_p=\sum m_i(x_{i+1}-x_i)\quad U_p=\sum M_i(x_{i+1}-x_i)
+  $$
+  We say $f$ is integrable if and only if
+  $$
+  \sup_P L_p=\inf_P U_p
+  $$
+  Observe that integrability is defined on an interval like $[a,b]$. This is unlike continuity or differentiability that are defined at a single point $x_0$.
+\end{definition}
+\begin{theorem}[Calculus]
+  Here are some theorems related to calculus. Let $f:[a,b]\ra \R$ and $F(x)=\int_a^xf(s)ds$.
+  \begin{itemize}
+    \item Suppose $f$ is continuous. Then $f$ is integrable.
+    \item Suppose $f$ is integrable on $[a,b]$. Then $F$ is continuous on $[a,b]$.
+    \item Suppose $f$ is continuous at $x_0$. Then $F$ is differentiable at $x_0$.
+    \item Suppose $F'=f$. Then $\int_a^bf(s)ds=F(b)-F(a)$. We have a verify that $F$ is differentiable and that $f$ is integrable. We get both of these things for free if we just show that $f$ is continuous.
+  \end{itemize}
+\end{theorem}
+\begin{theorem}[L'Hopital's Rule]
+  Suppose $f$ and $g$ are differentiable on a deleted neighborhood $N$ of $a$ and satisfy the following properties:
+  \begin{itemize}
+    \item $\lim_{x\to a}f(x)=0$
+    \item $\lim_{x\to a}f(x)=0$
+    \item $\lim_{x\to a}\frac{f'(x)}{g'(x)}$ exists
+    \item For every $x\in N$, $g'(x)\neq 0$.
+  \end{itemize}
+\end{theorem}
+\begin{proof}
+  We didn't require that $f$ and $g$ be defined at $a$ so let $f(a)=g(a)=0$ to get a continuous function. (By the generalized mean inequality, there exists $c_x\in (a,x)$ such that
+  $$
+  \frac{f(x)-f(a)}{g(x)-g(a)}=\frac{f'(c_x)}{g'(c_x)}\implies \frac{f(x)}{g(x)}=\frac{f'(c_x)}{g'(c_x)}
+  $$
+  We are justified in expressing this as a fraction because $g(x)\neq 0$ for $x\in N\cap\{x:x>a\}$. If for some $x>a$, we had $g(x)=0$, Rolle's theorem would furnish a point $z$ such that $g'(z)=0$, contradicting the fourth constraint. A similar argument shows that $g(x)\neq 0$ for all $x\in N$. Now,
+  $$
+  \lim_{x\to a}\frac{f(x)}{g(x)}=\lim_{x\to a}\frac{f'(c_x)}{g'(c_x)}=\lim_{x\to a}\frac{f'(x)}{g'(x)}
+  $$
+\end{proof}
+The case for $\lim_{x\to\infty}$ is easy if we set $f(x)=F(-\frac{1}{x})$ and $g(x)=G(-\frac{1}{})$.
+\begin{theorem}[Cauchy's Generalized Mean Theorem]
+  Suppose $f$ and $g$ are continuous on $[a,b]$ and are differentiable on $(a,b)$. Then there exists $c\in (a,b)$ such that
+  $$
+  \frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(c)}{g'(c)}.
+  $$
+\end{theorem}
 \end{document}
